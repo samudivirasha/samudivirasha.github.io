@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page Layout</title>
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+    }
+    nav {
+      position: fixed;
+      width: 250px;
+      height: 100vh;
+      background: #0563bb;
+      color: white;
+      padding: 1em;
+    }
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 1em 0;
+      padding: 0.5em;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    main {
+      margin-left: 260px;
+      padding: 2em;
+      flex-grow: 1;
+    }
+    section {
+      margin-bottom: 3em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Navigation</h2>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <main>
+    <section id="home">
+      <h1>Home</h1>
+      <p>Welcome to the single-page site!</p>
+    </section>
+    <section id="about">
+      <h1>About</h1>
+      <p>About section content goes here.</p>
+    </section>
+    <section id="resume">
+      <h1>Resume</h1>
+      <p>Resume section content goes here.</p>
+    </section>
+    <section id="portfolio">
+      <h1>Portfolio</h1>
+      <p>Portfolio section content goes here.</p>
+    </section>
+    <section id="services">
+      <h1>Services</h1>
+      <p>Services section content goes here.</p>
+    </section>
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Contact section content goes here.</p>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
